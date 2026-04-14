@@ -1,0 +1,90 @@
+.special-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.special-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.special-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.special-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.special-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.special-card__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--highlight-dark);
+}
+
+.special-card__price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--secondary-orange);
+  white-space: nowrap;
+}
+
+.special-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.special-card__stars {
+  color: var(--primary-yellow);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.special-card__rating-value {
+  font-size: 14px;
+  color: #888;
+}
+
+.special-card__description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  flex: 1;
+}
+
+.special-card__order-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  align-self: flex-start;
+  transition: background 0.2s, color 0.2s;
+}
+
+.special-card__order-btn:hover {
+  background: var(--primary-green);
+  color: var(--white);
+}
