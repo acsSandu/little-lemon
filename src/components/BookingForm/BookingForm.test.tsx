@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes } from '../../pages/Booking/Booking';
@@ -22,6 +22,16 @@ describe('BookingForm', () => {
   it('renders the "Make Your Reservation" submit button', () => {
     render(<BookingForm availableTimes={defaultTimes} dispatch={mockDispatch} />);
     expect(screen.getByText('Make Your Reservation')).toBeInTheDocument();
+  });
+
+  it('can be submitted after filling in required fields', () => {
+    render(<BookingForm availableTimes={defaultTimes} dispatch={mockDispatch} />);
+
+    fireEvent.change(screen.getByLabelText('Choose date'), { target: { value: '2026-04-20' } });
+    fireEvent.change(screen.getByLabelText('Number of guests'), { target: { value: '4' } });
+    fireEvent.submit(screen.getByRole('button', { name: 'Make Your Reservation' }).closest('form')!);
+
+    expect(mockDispatch).toHaveBeenCalledWith({ date: '2026-04-20' });
   });
 });
 
