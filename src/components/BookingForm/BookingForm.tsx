@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import './BookingForm.css';
 
-const INITIAL_AVAILABLE_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+interface BookingFormProps {
+  availableTimes: string[];
+  dispatch: (action: { date: string }) => void;
+}
 
-function BookingForm() {
-  const [availableTimes] = useState<string[]>(INITIAL_AVAILABLE_TIMES);
+function BookingForm({ availableTimes, dispatch }: BookingFormProps) {
   const [date, setDate] = useState('');
-  const [time, setTime] = useState(INITIAL_AVAILABLE_TIMES[0]);
+  const [time, setTime] = useState(availableTimes[0] ?? '');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
     // TODO: wire up to API service
     console.log({ date, time, guests, occasion });
@@ -24,7 +26,10 @@ function BookingForm() {
           type="date"
           id="res-date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => {
+            setDate(e.target.value);
+            dispatch({ date: e.target.value });
+          }}
           required
         />
       </div>
