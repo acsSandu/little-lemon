@@ -4,9 +4,10 @@ import './BookingForm.css';
 interface BookingFormProps {
   availableTimes: string[];
   dispatch: (action: { date: string }) => void;
+  submitForm: (formData: { date: string; time: string; guests: number; occasion: string }) => void;
 }
 
-function BookingForm({ availableTimes, dispatch }: BookingFormProps) {
+function BookingForm({ availableTimes, dispatch, submitForm }: BookingFormProps) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState(availableTimes[0] ?? '');
   const [guests, setGuests] = useState(1);
@@ -14,7 +15,7 @@ function BookingForm({ availableTimes, dispatch }: BookingFormProps) {
 
   function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
-    submitAPI({ date, time, guests, occasion });
+    submitForm({ date, time, guests, occasion });
   }
 
   return (

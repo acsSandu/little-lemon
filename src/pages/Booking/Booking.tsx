@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Booking.css';
 import Navbar from '../../components/Navbar/Navbar';
 import BookingForm from '../../components/BookingForm/BookingForm';
@@ -13,6 +14,13 @@ export function updateTimes(_state: string[], action: { date: string }): string[
 
 function BookingPage() {
   const [availableTimes, dispatch] = useReducer(updateTimes, undefined, initializeTimes);
+  const navigate = useNavigate();
+
+  function submitForm(formData: { date: string; time: string; guests: number; occasion: string }) {
+    if (submitAPI(formData)) {
+      navigate('/booking-confirmed');
+    }
+  }
 
   return (
     <main className="booking-page">
@@ -25,7 +33,7 @@ function BookingPage() {
       </section>
       <section className="booking-page__form-section">
         <h2>Book your table</h2>
-        <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+        <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
       </section>
     </main>
   );
