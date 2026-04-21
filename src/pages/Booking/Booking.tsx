@@ -3,15 +3,12 @@ import './Booking.css';
 import Navbar from '../../components/Navbar/Navbar';
 import BookingForm from '../../components/BookingForm/BookingForm';
 
-const ALL_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-
 export function initializeTimes(): string[] {
-  return ALL_TIMES;
+  return fetchAPI(new Date());
 }
 
-export function updateTimes(_state: string[], _action: { date: string }): string[] {
-  // TODO: filter available times based on action.date once API is wired up
-  return ALL_TIMES;
+export function updateTimes(_state: string[], action: { date: string }): string[] {
+  return fetchAPI(new Date(action.date));
 }
 
 function BookingPage() {

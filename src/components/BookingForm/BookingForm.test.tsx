@@ -1,7 +1,18 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes } from '../../pages/Booking/Booking';
+
+const MOCK_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+
+beforeAll(() => {
+  vi.stubGlobal('fetchAPI', vi.fn().mockReturnValue(MOCK_TIMES));
+  vi.stubGlobal('submitAPI', vi.fn().mockReturnValue(true));
+});
+
+afterAll(() => {
+  vi.unstubAllGlobals();
+});
 
 const mockDispatch = vi.fn();
 const defaultTimes = initializeTimes();

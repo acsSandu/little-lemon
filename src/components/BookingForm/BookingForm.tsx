@@ -14,8 +14,7 @@ function BookingForm({ availableTimes, dispatch }: BookingFormProps) {
 
   function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
-    // TODO: wire up to API service
-    console.log({ date, time, guests, occasion });
+    submitAPI({ date, time, guests, occasion });
   }
 
   return (
