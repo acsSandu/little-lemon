@@ -17,3 +17,10 @@
 3. [Semantic tags in action](https://www.coursera.org/learn/html-and-css-in-depth/lecture/AoFb0/semantic-tags-in-action)
 4. [Metadata](https://www.coursera.org/learn/html-and-css-in-depth/lecture/EeFw9/metadata)
 5. [Metadata cheat sheet](https://www.coursera.org/learn/html-and-css-in-depth/supplement/8QDS1/metadata-cheat-sheet)
+
+## Form Validation
+
+1. [Form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation)
+2. [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+3. [Accessibility React](https://legacy.reactjs.org/docs/accessibility.html)
+4. [Web form design](https://www.nngroup.com/articles/web-form-design/)
