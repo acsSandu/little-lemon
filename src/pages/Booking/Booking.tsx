@@ -25,14 +25,14 @@ function BookingPage() {
   return (
     <main className="booking-page">
       <Navbar />
-      <section className="booking-page__hero">
+      <section className="booking-page__hero" aria-labelledby="booking-hero-title">
         <div className="booking-page__hero-content">
-          <h1>Reserve a Table</h1>
+          <h1 id="booking-hero-title">Reserve a Table</h1>
           <p>Join us for an unforgettable Mediterranean dining experience.</p>
         </div>
       </section>
-      <section className="booking-page__form-section">
-        <h2>Book your table</h2>
+      <section className="booking-page__form-section" aria-labelledby="booking-form-title">
+        <h2 id="booking-form-title">Book your table</h2>
         <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
       </section>
     </main>

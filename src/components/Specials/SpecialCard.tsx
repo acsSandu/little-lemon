@@ -38,14 +38,14 @@ function SpecialCard({ special }: SpecialCardProps) {
       <div className="special-card__body">
         <div className="special-card__header">
           <h3 className="special-card__name">{special.name}</h3>
-          <span className="special-card__price">${special.price.toFixed(2)}</span>
+          <span className="special-card__price" aria-label={`Price: $${special.price.toFixed(2)}`}>${special.price.toFixed(2)}</span>
         </div>
         <div className="special-card__rating">
           <StarRating rating={special.rating} />
           <span className="special-card__rating-value">{special.rating}</span>
         </div>
         <p className="special-card__description">{special.description}</p>
-        <button className="special-card__order-btn">Order a delivery 🛵</button>
+        <button className="special-card__order-btn" aria-label={`Order ${special.name} for delivery`}>Order a delivery 🛵</button>
       </div>
     </article>
   );

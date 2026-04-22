@@ -36,11 +36,11 @@ const SPECIALS: Special[] = [
 
 function Specials() {
   return (
-    <section className="specials">
+    <section className="specials" aria-labelledby="specials-title">
       <div className="specials__container">
         <div className="specials__header">
-          <h2 className="specials__title">This weeks specials!</h2>
-          <button className="specials__menu-btn">Online Menu</button>
+          <h2 id="specials-title" className="specials__title">This weeks specials!</h2>
+          <button className="specials__menu-btn" aria-label="View the online menu">Online Menu</button>
         </div>
         <div className="specials__grid">
           {SPECIALS.map((special) => (

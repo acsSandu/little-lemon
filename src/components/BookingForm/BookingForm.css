@@ -35,6 +35,17 @@
   border-color: var(--primary-green);
 }
 
+.booking-form__field input[aria-invalid="true"],
+.booking-form__field select[aria-invalid="true"] {
+  border-color: #d9534f;
+}
+
+.booking-form__error {
+  font-size: 13px;
+  color: #d9534f;
+  font-weight: 500;
+}
+
 .booking-form__submit {
   background-color: var(--primary-yellow);
   color: var(--highlight-dark);

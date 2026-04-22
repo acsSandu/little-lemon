@@ -13,7 +13,7 @@ const NAV_LINKS: { label: string; to: string }[] = [
 
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar" aria-label="Main navigation">
       <div className="navbar__container">
         <Link to="/">
           <img src={logo} alt="Little Lemon" className="navbar__logo" />

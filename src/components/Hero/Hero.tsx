@@ -6,10 +6,10 @@ function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section className="hero">
+    <section className="hero" aria-labelledby="hero-title">
       <div className="hero__container">
         <div className="hero__content">
-          <h1 className="hero__title">Little Lemon</h1>
+          <h1 id="hero-title" className="hero__title">Little Lemon</h1>
           <h2 className="hero__city">Chicago</h2>
           <p className="hero__description">
             We are a family owned Mediterranean restaurant, focused on
